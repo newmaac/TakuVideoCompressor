@@ -79,7 +79,7 @@ async def encc(e):
                 [Button.inline("CANCEL PROCESS", data=f"skip{wah}")],
             ],
         )
-        cmd = f'ffmpeg -i "{dl}" -map 0 -c:v libx265 -tune animation -crf 27 -c:a aac "{out}"'
+        cmd = f'ffmpeg -i "{dl}" -map 0 -c:v h264 -tune animation -crf 27 -c:a aac "{out}"'
         process = await asyncio.create_subprocess_shell(
             cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
         )
@@ -149,7 +149,7 @@ async def sample(e):
             [Button.inline("CANCEL PROCESS", data=f"skip{wah}")],
         ],
     )
-    ncmd = f'ffmpeg -i "{dl}" -map 0 -c:v libx265 -crf 27 -tune animation -c:a aac "{out}"'
+    ncmd = f'ffmpeg -i "{dl}" -map 0 -c:v h264 -crf 27 -tune animation -c:a aac "{out}"'
     process = await asyncio.create_subprocess_shell(
         ncmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
